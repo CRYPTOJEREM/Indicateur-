@@ -116,10 +116,23 @@
                   </defs>
                   <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#1e3a5f" strokeWidth="16" strokeLinecap="round" />
                   <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="url(#fgArc)" strokeWidth="16" strokeLinecap="round" />
-                 {% raw %}
-<div style="{{ transform: `rotate(${-90 + (currentValue / 100) * 180}deg)` }}"></div>
-{% endraw %}
-
+                  <g
+  style={{
+    transform: `rotate(${-90 + (currentValue / 100) * 180}deg)`,
+    transformOrigin: '100px 100px',
+    transition: 'transform 0.8s ease-out'
+  }}
+>
+  <line
+    x1="100"
+    y1="100"
+    x2="100"
+    y2="35"
+    stroke={current.color}
+    strokeWidth="3"
+    strokeLinecap="round"
+  />
+</g>
                     <line x1="100" y1="100" x2="100" y2="35" stroke={current.color} strokeWidth="3" strokeLinecap="round" />
                     <circle cx="100" cy="100" r="8" fill={current.color} />
                     <circle cx="100" cy="100" r="4" fill="#0f2744" />
